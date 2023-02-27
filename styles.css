@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    border: solid;
+    border-color: bisque;
+
+}
+
+
+.row{
+    display: flex;
+    flex: 1;
+}
+
+#display{
+    flex: 1;
+    text-align: right;
+    border: solid;
+    border-color: grey;
+}
+
+button{
+    flex: 1;
+}
