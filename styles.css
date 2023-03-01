@@ -10,7 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 300px;
-    width: 300px;
+    width: 250px;
     border: solid;
     border-color: bisque;
 
@@ -27,6 +27,7 @@ body{
     text-align: right;
     border: solid;
     border-color: grey;
+    font-size: 40px;
 }
 
 button{

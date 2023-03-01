@@ -1,8 +1,13 @@
+let displayValue = document.querySelector('#display');
+let firstNumber = 0;
+let secondNumber = 0;
+let operand = null;
+
+console.log(displayValue.innerHTML)
 
 
 
-
-function operate(operater, a, b);
+function operate(operater, a, b){
 
     if (operater === "+"){
         function add(){
@@ -32,5 +37,5 @@ function operate(operater, a, b);
         }
     }
 
-
+}
 
