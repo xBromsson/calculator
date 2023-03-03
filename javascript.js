@@ -25,27 +25,51 @@ const btnZero = document.querySelector('#zero');
 
 const btnArray = document.querySelectorAll('button');
 
-for(let i = 0; i < btnArray.length; i++){
-    let self = btnArray[i]
-    self.addEventListener('click', doThings)
-    
-}
-
 //this just updates the display to match the innards
 function updateDisplay(){
+    if (operand === null){
+        displayValue.innerHTML = firstNumber;
+    }
     return;
 }
 
 //event listener function that will do various button actions
 function doThings(){
     console.log('success')
+    for (let i = 0; i < btnArray.length; i++){}
+
+    if (btnArray[i].id = "#zero"){
+        firstNumber.toString
+        firstNumber = firstNumber + "0";
+        updateDisplay();
+        console.log(firstNumber)
+        
+    }
+    
+    else if (self.id = "#one"){
+        firstNumber.toString
+        firstNumber = firstNumber + "0";
+        updateDisplay();
+        console.log(firstNumber)
+    }
+
+    else if (self.id = "ac"){
+        firstNumber = 0;
+        secondNumber = 0;
+        operand = null;
+        updateDisplay();
+    
+    }
+    
 }
 
 
 
-
-console.log(displayValue.innerHTML)
-
+for(let i = 0; i < btnArray.length; i++){
+    let self = btnArray[i]
+    self.addEventListener('click', doThings);
+    
+}
 
 // controls the math operations of the calculator
 function operate(operater, a, b){
@@ -79,4 +103,13 @@ function operate(operater, a, b){
     }
 
 }
+
+
+firstNumber.toString
+firstNumber = firstNumber + "1";
+console.log(firstNumber)
+//console.log(displayValue.innerHTML)
+
+
+
 
