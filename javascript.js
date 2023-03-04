@@ -22,8 +22,16 @@ const btnThree = document.querySelector('#three');
 const btnTwo = document.querySelector('#two');
 const btnOne = document.querySelector('#one');
 const btnZero = document.querySelector('#zero');
-
 const btnArray = document.querySelectorAll('button');
+
+//firstNumber.toString
+//firstNumber = firstNumber + "1"
+//parseInt(firstNumber)
+
+//firstNumber = 3*4
+
+//displayValue.innerHTML = firstNumber
+
 
 //this just updates the display to match the innards
 function updateDisplay(){
@@ -36,11 +44,11 @@ function updateDisplay(){
 //event listener function that will do various button actions
 function doThings(){
     console.log('success')
-    for (let i = 0; i < btnArray.length; i++){}
 
-    if (btnArray[i].id = "#zero"){
+    if (self.id = "#zero"){
         firstNumber.toString
         firstNumber = firstNumber + "0";
+        parseInt(firstNumber)
         updateDisplay();
         console.log(firstNumber)
         
@@ -48,7 +56,8 @@ function doThings(){
     
     else if (self.id = "#one"){
         firstNumber.toString
-        firstNumber = firstNumber + "0";
+        firstNumber = firstNumber + "1";
+        parseInt(firstNumber)
         updateDisplay();
         console.log(firstNumber)
     }
@@ -67,7 +76,33 @@ function doThings(){
 
 for(let i = 0; i < btnArray.length; i++){
     let self = btnArray[i]
-    self.addEventListener('click', doThings);
+    self.addEventListener('click', (event) => {
+        if (self.id === "zero"){
+            firstNumber.toString
+            firstNumber = firstNumber + "0";
+            parseInt(firstNumber)
+            updateDisplay();
+            console.log(firstNumber)
+            
+        }
+        
+        else  if (self.id === "one") {
+            firstNumber.toString
+            firstNumber = firstNumber + "1";
+            parseInt(firstNumber)
+            updateDisplay();
+            console.log(firstNumber)
+        }
+
+        else if (self.id = "ac"){
+            firstNumber = 0;
+            secondNumber = 0;
+            operand = null;
+            updateDisplay();
+        
+        }
+    
+    });
     
 }
 
@@ -105,10 +140,6 @@ function operate(operater, a, b){
 }
 
 
-firstNumber.toString
-firstNumber = firstNumber + "1";
-console.log(firstNumber)
-//console.log(displayValue.innerHTML)
 
 
 
