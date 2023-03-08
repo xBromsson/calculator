@@ -1,141 +1,125 @@
 let displayValue = document.querySelector('#display');
-let firstNumber = 0;
-let secondNumber = 0;
-let operand = null;
+let subDisplayValue = document.querySelector('#subdisplay');
+let firstNumber = "";
+let secondNumber = "";
+let result = "";
+let operator = "";
+let process = false;
 
-const btnClear = document.querySelector('#ac');
-const btnSwap = document.querySelector('#swap');
-const btnPercent = document.querySelector('#percent');
-const btnDivide = document.querySelector('#divide');
-const btnMultiply = document.querySelector('#multiply');
-const btnAdd = document.querySelector('#add');
-const btnSubtract = document.querySelector('#subtract');
-const btnOperate = document.querySelector('#operate');
-const btnDecimal = document.querySelector('#decimal');
-const btnNine = document.querySelector('#nine');
-const btnEight = document.querySelector('#eight');
-const btnSeven = document.querySelector('#seven');
-const btnSix = document.querySelector('#six');
-const btnFive = document.querySelector('#five');
-const btnFour = document.querySelector('#four');
-const btnThree = document.querySelector('#three');
-const btnTwo = document.querySelector('#two');
-const btnOne = document.querySelector('#one');
-const btnZero = document.querySelector('#zero');
-const btnArray = document.querySelectorAll('button');
-
-//firstNumber.toString
-//firstNumber = firstNumber + "1"
-//parseInt(firstNumber)
-
-//firstNumber = 3*4
-
-//displayValue.innerHTML = firstNumber
+const numberArray = document.querySelectorAll('.number');
+const actionArray = document.querySelectorAll('.action');
+const operationArray = document.querySelectorAll('.operation');
 
 
 //this just updates the display to match the innards
 function updateDisplay(){
-    if (operand === null){
-        displayValue.innerHTML = firstNumber;
+    
+    if (operator === ""){
+        displayValue.textContent = firstNumber.toString();
+        if (firstNumber === ""){displayValue.textContent = "0"}
+    } else if (operator != ""){
+        displayValue.textContent = secondNumber.toString();
+        if (secondNumber === ""){displayValue.textContent = "0"}
     }
-    return;
+    
+
 }
 
-//event listener function that will do various button actions
-function doThings(){
-    console.log('success')
-
-    if (self.id = "#zero"){
-        firstNumber.toString
-        firstNumber = firstNumber + "0";
-        parseInt(firstNumber)
-        updateDisplay();
-        console.log(firstNumber)
-        
-    }
-    
-    else if (self.id = "#one"){
-        firstNumber.toString
-        firstNumber = firstNumber + "1";
-        parseInt(firstNumber)
-        updateDisplay();
-        console.log(firstNumber)
-    }
-
-    else if (self.id = "ac"){
-        firstNumber = 0;
-        secondNumber = 0;
-        operand = null;
-        updateDisplay();
-    
-    }
-    
+function updateSubDisplay(){
+    subDisplayValue.textContent = firstNumber + operator;
 }
 
-
-
-for(let i = 0; i < btnArray.length; i++){
-    let self = btnArray[i]
+//listens for events on the number buttons 1 through 9 
+for(let i = 0; i < numberArray.length; i++){
+    let self = numberArray[i]
     self.addEventListener('click', (event) => {
-        if (self.id === "zero"){
-            firstNumber.toString
-            firstNumber = firstNumber + "0";
-            parseInt(firstNumber)
-            updateDisplay();
-            console.log(firstNumber)
-            
-        }
-        
-        else  if (self.id === "one") {
-            firstNumber.toString
-            firstNumber = firstNumber + "1";
-            parseInt(firstNumber)
-            updateDisplay();
-            console.log(firstNumber)
+
+        if (result != ""){
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            result = "";
         }
 
-        else if (self.id = "ac"){
-            firstNumber = 0;
-            secondNumber = 0;
-            operand = null;
-            updateDisplay();
-        
+        if (operator === ""){
+            firstNumber += self.textContent;
+        } else if (operator != ""){
+            secondNumber += self.textContent;
+        } 
+
+        updateDisplay();    
+    });    
+}
+
+//listens for events on the operations button , add, sub, div, multiply
+for(let i = 0; i < operationArray.length; i++){
+    let self = operationArray[i]
+    self.addEventListener('click', (event) => {
+
+        operator = self.textContent;
+        if (result != ""){
+            secondNumber = "";
+            result = "";
         }
     
-    });
+    });    
+}
+
+//listens for events on the action buttons, equal, make negative, clear, 
+for(let i = 0; i < actionArray.length; i++){
+    let self = actionArray[i]
+    self.addEventListener('click', (event) => {
+
+        if (self.id === "ac"){
+            firstNumber = "";
+            secondNumber = "";
+            result = "";
+            operator = "";
+            process = false;
+            updateDisplay();
+            //updateSubDisplay();
+        }
+
+        if (self.id === "operate"){
+            result = operate(operator, parseInt(firstNumber), parseInt(secondNumber));
+            displayValue.textContent = result;
+            firstNumber = result;
+        }
     
+        if (self.id === "swap"){
+            if (operator === ""){
+                firstNumber -= (parseInt(firstNumber) * 2);
+            } else if (result != ""){
+                firstNumber -= (firstNumber * 2);
+            } else if (operator != ""){
+                secondNumber -= (secondNumber * 2);
+            } 
+
+            updateDisplay;
+        }
+    });    
 }
 
 // controls the math operations of the calculator
-function operate(operater, a, b){
+function operate(operator, a, b){
+    let result = 0;
 
-    if (operater === "+"){
-        function add(){
-            result = a + b
-            return result
-        }
+    if (operator === "+"){
+        result = a + b
     }
 
-    if (operater === "-"){
-        function subtract(){
+    if (operator === "-"){
             result = a - b
-            return result
-        }
     }
 
-    if (operater === "*"){
-        function multiply(){
+    if (operator === "*"){
             result = a * b
-            return result
-        }
     }
 
-    if (operater === "/"){
-        function divide(){
+    if (operator === "/"){
             result = a / b
-            return result
-        }
     }
+    return result.toString();
 
 }
 
