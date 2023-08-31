@@ -1,0 +1,27 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Simple browser based calculator. ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xBromsson/calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "JavaScript"
+  ],
+  "author": "Marvin Brown",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/xBromsson/calculator/issues"
+  },
+  "homepage": "https://github.com/xBromsson/calculator#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
